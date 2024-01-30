@@ -19,7 +19,7 @@ for key, val in keys.items():
     os.environ[key] = val
 
 
-def api_call_3p5(messages,  retun_onlycontent = True):
+def api_call_3p5(messages,  return_onlycontent = True):
         
     client = OpenAI()
     message_content = []
@@ -29,8 +29,10 @@ def api_call_3p5(messages,  retun_onlycontent = True):
         
     messages=messages
     )
-    return completion.choices[0].message
-
+    if return_onlycontent:
+        return completion.choices[0].message
+    else:
+        return completion
 
 def api_call_vision_text(human_message, image, system_message = '', ai_message = '', ModelName = "gpt-4-vision-preview", max_token=4096, retun_onlycontent = True):
         
