@@ -1,0 +1,4 @@
+key.json
+
+*.pyc
+/.ipynb_checkpoints
